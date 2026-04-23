@@ -18,7 +18,7 @@ Write-Host ""
 # ─── Detect LAN IP ────────────────────────────────────────────
 $lanIP = (Get-NetIPAddress -AddressFamily IPv4 |
     Where-Object { $_.InterfaceAlias -notlike "*Loopback*" -and
-                   $_.IPAddress -notlike "169.*" } |
+        $_.IPAddress -notlike "169.*" } |
     Select-Object -First 1).IPAddress
 
 if (-not $lanIP) { $lanIP = "localhost" }
@@ -51,7 +51,8 @@ Start-Sleep -Seconds 3
 try {
     $health = Invoke-RestMethod "http://localhost:8000/health" -TimeoutSec 5
     Write-Host "✅ Backend is running: $($health | ConvertTo-Json -Compress)" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "⚠️  Backend may still be starting up..." -ForegroundColor Yellow
 }
 
