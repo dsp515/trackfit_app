@@ -144,7 +144,11 @@ eas build -p android --profile preview
 
 # 📸 Screenshots
 
-(Add screenshots here)
+<img width="720" height="1600" alt="screenshot_foodlog" src="https://github.com/user-attachments/assets/749cd90d-4d41-4cf7-99eb-3cfa65fd0e73" />
+<img width="720" height="1600" alt="screenshot_food" src="https://github.com/user-attachments/assets/d0f067a5-0485-40b2-844f-7ad0e946fa52" />
+<img width="720" height="1600" alt="screenshot_steps" src="https://github.com/user-attachments/assets/ceb54c48-2d01-496a-95b3-b0aa1970deca" />
+<img width="720" height="1600" alt="screenshot_home" src="https://github.com/user-attachments/assets/2f6b8afb-9a49-4854-b03c-9cd8c0d6e378" />
+
 
 ---
 
