@@ -1,0 +1,338 @@
+{
+  "running": {
+    "name": "Running",
+    "type": "cardio",
+    "calories_per_min": 11.4,
+    "muscle_groups": ["quadriceps", "hamstrings", "calves", "glutes"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "walking": {
+    "name": "Walking",
+    "type": "cardio",
+    "calories_per_min": 5.0,
+    "muscle_groups": ["quadriceps", "hamstrings", "calves"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "cycling": {
+    "name": "Cycling",
+    "type": "cardio",
+    "calories_per_min": 8.5,
+    "muscle_groups": ["quadriceps", "hamstrings", "calves"],
+    "equipment": "bicycle",
+    "difficulty": "beginner"
+  },
+  "swimming": {
+    "name": "Swimming",
+    "type": "cardio",
+    "calories_per_min": 9.8,
+    "muscle_groups": ["full_body", "shoulders", "back", "core"],
+    "equipment": "pool",
+    "difficulty": "intermediate"
+  },
+  "jump_rope": {
+    "name": "Jump Rope",
+    "type": "cardio",
+    "calories_per_min": 12.5,
+    "muscle_groups": ["calves", "shoulders", "forearms"],
+    "equipment": "jump_rope",
+    "difficulty": "intermediate"
+  },
+  "burpees": {
+    "name": "Burpees",
+    "type": "cardio",
+    "calories_per_min": 10.0,
+    "muscle_groups": ["full_body", "chest", "quadriceps", "core"],
+    "equipment": "none",
+    "difficulty": "intermediate"
+  },
+  "mountain_climbers": {
+    "name": "Mountain Climbers",
+    "type": "cardio",
+    "calories_per_min": 9.5,
+    "muscle_groups": ["core", "shoulders", "quadriceps"],
+    "equipment": "none",
+    "difficulty": "intermediate"
+  },
+  "high_knees": {
+    "name": "High Knees",
+    "type": "cardio",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["quadriceps", "hip_flexors", "calves"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "jumping_jacks": {
+    "name": "Jumping Jacks",
+    "type": "cardio",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["full_body", "calves", "shoulders"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "rowing": {
+    "name": "Rowing Machine",
+    "type": "cardio",
+    "calories_per_min": 8.6,
+    "muscle_groups": ["back", "biceps", "quadriceps", "core"],
+    "equipment": "rowing_machine",
+    "difficulty": "beginner"
+  },
+  "push_ups": {
+    "name": "Push-Ups",
+    "type": "strength",
+    "calories_per_min": 7.0,
+    "muscle_groups": ["chest", "triceps", "shoulders", "core"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "pull_ups": {
+    "name": "Pull-Ups",
+    "type": "strength",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["back", "biceps", "forearms"],
+    "equipment": "pull_up_bar",
+    "difficulty": "intermediate"
+  },
+  "squats": {
+    "name": "Squats",
+    "type": "strength",
+    "calories_per_min": 6.5,
+    "muscle_groups": ["quadriceps", "glutes", "hamstrings", "core"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "lunges": {
+    "name": "Lunges",
+    "type": "strength",
+    "calories_per_min": 6.0,
+    "muscle_groups": ["quadriceps", "glutes", "hamstrings"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "deadlifts": {
+    "name": "Deadlifts",
+    "type": "strength",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["hamstrings", "glutes", "back", "core"],
+    "equipment": "barbell",
+    "difficulty": "intermediate"
+  },
+  "bench_press": {
+    "name": "Bench Press",
+    "type": "strength",
+    "calories_per_min": 6.0,
+    "muscle_groups": ["chest", "triceps", "shoulders"],
+    "equipment": "barbell",
+    "difficulty": "intermediate"
+  },
+  "shoulder_press": {
+    "name": "Shoulder Press",
+    "type": "strength",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["shoulders", "triceps"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate"
+  },
+  "bicep_curls": {
+    "name": "Bicep Curls",
+    "type": "strength",
+    "calories_per_min": 4.5,
+    "muscle_groups": ["biceps", "forearms"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner"
+  },
+  "tricep_dips": {
+    "name": "Tricep Dips",
+    "type": "strength",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["triceps", "chest", "shoulders"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "plank": {
+    "name": "Plank",
+    "type": "strength",
+    "calories_per_min": 4.0,
+    "muscle_groups": ["core", "shoulders", "glutes"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "crunches": {
+    "name": "Crunches",
+    "type": "strength",
+    "calories_per_min": 4.5,
+    "muscle_groups": ["core", "abdominals"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "russian_twists": {
+    "name": "Russian Twists",
+    "type": "strength",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["core", "obliques"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "leg_raises": {
+    "name": "Leg Raises",
+    "type": "strength",
+    "calories_per_min": 5.0,
+    "muscle_groups": ["core", "hip_flexors", "lower_abs"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "hip_thrusts": {
+    "name": "Hip Thrusts",
+    "type": "strength",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["glutes", "hamstrings"],
+    "equipment": "barbell",
+    "difficulty": "intermediate"
+  },
+  "lat_pulldown": {
+    "name": "Lat Pulldown",
+    "type": "strength",
+    "calories_per_min": 5.0,
+    "muscle_groups": ["back", "biceps"],
+    "equipment": "cable_machine",
+    "difficulty": "beginner"
+  },
+  "cable_rows": {
+    "name": "Cable Rows",
+    "type": "strength",
+    "calories_per_min": 5.0,
+    "muscle_groups": ["back", "biceps", "shoulders"],
+    "equipment": "cable_machine",
+    "difficulty": "beginner"
+  },
+  "yoga": {
+    "name": "Yoga",
+    "type": "flexibility",
+    "calories_per_min": 3.5,
+    "muscle_groups": ["full_body", "core"],
+    "equipment": "yoga_mat",
+    "difficulty": "beginner"
+  },
+  "stretching": {
+    "name": "Stretching",
+    "type": "flexibility",
+    "calories_per_min": 2.5,
+    "muscle_groups": ["full_body"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  },
+  "pilates": {
+    "name": "Pilates",
+    "type": "flexibility",
+    "calories_per_min": 4.0,
+    "muscle_groups": ["core", "full_body"],
+    "equipment": "none",
+    "difficulty": "intermediate"
+  },
+  "basketball": {
+    "name": "Basketball",
+    "type": "sports",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["full_body", "quadriceps", "calves"],
+    "equipment": "basketball",
+    "difficulty": "intermediate"
+  },
+  "football": {
+    "name": "Football",
+    "type": "sports",
+    "calories_per_min": 9.0,
+    "muscle_groups": ["full_body", "quadriceps", "core"],
+    "equipment": "football",
+    "difficulty": "intermediate"
+  },
+  "cricket": {
+    "name": "Cricket",
+    "type": "sports",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["shoulders", "core", "quadriceps"],
+    "equipment": "cricket_bat",
+    "difficulty": "beginner"
+  },
+  "badminton": {
+    "name": "Badminton",
+    "type": "sports",
+    "calories_per_min": 7.0,
+    "muscle_groups": ["shoulders", "calves", "quadriceps"],
+    "equipment": "racket",
+    "difficulty": "beginner"
+  },
+  "tennis": {
+    "name": "Tennis",
+    "type": "sports",
+    "calories_per_min": 8.0,
+    "muscle_groups": ["shoulders", "core", "quadriceps"],
+    "equipment": "racket",
+    "difficulty": "intermediate"
+  },
+  "dumbbell_rows": {
+    "name": "Dumbbell Rows",
+    "type": "strength",
+    "calories_per_min": 5.5,
+    "muscle_groups": ["back", "biceps", "shoulders"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner"
+  },
+  "goblet_squats": {
+    "name": "Goblet Squats",
+    "type": "strength",
+    "calories_per_min": 7.0,
+    "muscle_groups": ["quadriceps", "glutes", "core"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner"
+  },
+  "step_ups": {
+    "name": "Step-Ups",
+    "type": "strength",
+    "calories_per_min": 6.5,
+    "muscle_groups": ["quadriceps", "glutes", "hamstrings"],
+    "equipment": "bench",
+    "difficulty": "beginner"
+  },
+  "box_jumps": {
+    "name": "Box Jumps",
+    "type": "cardio",
+    "calories_per_min": 10.0,
+    "muscle_groups": ["quadriceps", "glutes", "calves"],
+    "equipment": "plyo_box",
+    "difficulty": "intermediate"
+  },
+  "battle_ropes": {
+    "name": "Battle Ropes",
+    "type": "cardio",
+    "calories_per_min": 10.5,
+    "muscle_groups": ["shoulders", "core", "arms"],
+    "equipment": "battle_ropes",
+    "difficulty": "intermediate"
+  },
+  "kettlebell_swings": {
+    "name": "Kettlebell Swings",
+    "type": "strength",
+    "calories_per_min": 9.5,
+    "muscle_groups": ["glutes", "hamstrings", "core", "shoulders"],
+    "equipment": "kettlebell",
+    "difficulty": "intermediate"
+  },
+  "surya_namaskar": {
+    "name": "Surya Namaskar",
+    "type": "flexibility",
+    "calories_per_min": 6.5,
+    "muscle_groups": ["full_body", "core", "spine"],
+    "equipment": "yoga_mat",
+    "difficulty": "beginner"
+  },
+  "kapalbhati": {
+    "name": "Kapalbhati Pranayama",
+    "type": "flexibility",
+    "calories_per_min": 2.0,
+    "muscle_groups": ["core", "diaphragm"],
+    "equipment": "none",
+    "difficulty": "beginner"
+  }
+}

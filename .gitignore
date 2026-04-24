@@ -1,0 +1,28 @@
+# Node
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Build outputs
+android/
+ios/
+build/
+dist/
+
+# APK / AAB
+*.apk
+*.aab
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+venv/
