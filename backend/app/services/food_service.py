@@ -14,6 +14,20 @@ from app.models.food_log import FoodLog
 from app.models.daily_stats import DailyStats
 from app.schemas.food import FoodLogCreate, TodayFoodSummary
 
+# ─── AI Food Recognition toggle ─────────────────────────────────────────────────
+# Set to False on Render free tier or when model weights are not deployed.
+# When False, recognize_food* always returns a safe fallback (no 500 errors).
+# Set to True only when running on hardware with enough RAM for the model.
+USE_AI_FOOD: bool = bool(os.getenv("ENABLE_FOOD_AI", "false").lower() in ("1", "true", "yes"))
+
+_FOOD_FALLBACK = {
+    "food": "Unknown",
+    "calories": 200,
+    "predictions": [],
+    "source": "fallback",
+    "message": "AI food recognition is disabled. Use the food search instead.",
+}
+
 # Module-level singletons for heavy models (loaded once per process, not per-request)
 _vit_extractor = None
 _vit_model = None
@@ -134,16 +148,18 @@ class FoodService:
     def get_food_by_key(self, food_key: str) -> dict | None:
         return self.food_db.get(food_key)
 
-    # ─── CNN Food Recognition ──────────────────────────────────
+    # ─── CNN Food Recognition ─────────────────────────────────────
 
     def recognize_food(self, image_base64: str) -> dict:
         """Run CNN on a food image and return top-5 predictions from food DB."""
+        if not USE_AI_FOOD:
+            return _FOOD_FALLBACK
+
         self._load_recognition_model()
         if not self._model or not self._classes:
             return {
                 "error": "Food recognition model not loaded",
                 "predictions": [],
-                "hint": "Place food_model.pt and food_classes.json in backend/app/models/",
             }
 
         import torch
@@ -183,12 +199,10 @@ class FoodService:
     # ─── ViT Food Recognition (from app.py) ─────────────────────
 
     async def recognize_food_vit(self, image_base64: str) -> dict:
-        """Identify food using Google ViT model + get nutrition from API Ninjas.
-        
-        This is the approach from app.py:
-        1. ViT classifies the food image -> food name
-        2. API Ninjas nutrition API -> calories, protein, carbs, fat
-        """
+        """Identify food using Google ViT model + get nutrition from API Ninjas."""
+        if not USE_AI_FOOD:
+            return _FOOD_FALLBACK
+
         global _vit_extractor, _vit_model
 
         try:

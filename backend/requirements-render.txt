@@ -1,0 +1,24 @@
+# ─── TrackFit Backend — Render.com deployment requirements ───────────────────
+# STRIPPED of heavy ML libs (torch, transformers, mediapipe, opencv).
+# Food AI recognition is disabled via ENABLE_FOOD_AI=false (default).
+# All other features (auth, food search/log, workouts, hydration, steps,
+# AI coach via Gemini, barcode scan, stats) work fully.
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+gunicorn==22.0.0
+sqlalchemy==2.0.36
+
+# Use aiosqlite for SQLite (no postgres binary needed on free tier)
+aiosqlite==0.20.0
+
+python-dotenv==1.0.1
+passlib[bcrypt,pbkdf2]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.20
+pydantic[email]==2.10.4
+pydantic-settings==2.7.1
+httpx==0.28.1
+Pillow==10.4.0
+slowapi==0.1.9
+limits==3.13.0

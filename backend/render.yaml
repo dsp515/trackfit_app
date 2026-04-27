@@ -2,14 +2,71 @@ services:
   - type: web
     name: trackfit-backend
     runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    region: oregon          # free tier available region
+    plan: free              # free plan — 512 MB RAM, sleeps after 15 min idle
+
+    # Use the lightweight requirements (no torch/mediapipe/opencv)
+    buildCommand: pip install -r requirements-render.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+
+    healthCheckPath: /health
+
     envVars:
+      # ── Database ────────────────────────────────────────────────────────────
+      # Using SQLite on Render (free tier, persists during session).
+      # Upgrade to Render PostgreSQL add-on for production persistence.
       - key: DATABASE_URL
-        generateValue: false
-        sync: false
+        value: sqlite:///./trackfit.db
+
+      # ── Auth ────────────────────────────────────────────────────────────────
       - key: JWT_SECRET
-        generateValue: true
+        generateValue: true           # Render auto-generates a strong secret
+
+      - key: ALGORITHM
+        value: HS256
+
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "10080"                # 7 days
+
+      # ── AI Services ─────────────────────────────────────────────────────────
+      - key: GEMINI_API_KEY
+        sync: false                   # Set manually in Render dashboard
+
       - key: OPENROUTER_API_KEY
-        generateValue: false
-        sync: false
+        value: ""                     # Optional — leave blank if not used
+
+      - key: API_NINJAS_KEY
+        sync: false                   # Optional — set in Render dashboard
+
+      - key: HF_TOKEN
+        value: ""                     # Not needed — food AI is disabled
+
+      # ── Food AI toggle (disabled on free tier) ───────────────────────────────
+      - key: ENABLE_FOOD_AI
+        value: "false"               # torch/transformers not installed on Render
+
+      # ── Environment ─────────────────────────────────────────────────────────
+      - key: ENVIRONMENT
+        value: production
+
+      - key: DEBUG
+        value: "false"
+
+      # ── CORS (allow all — app connects from any network) ────────────────────
+      - key: CORS_ORIGINS
+        value: "*"
+
+      # ── Rate limiting ────────────────────────────────────────────────────────
+      - key: RATE_LIMIT_REQUESTS
+        value: "100"
+
+      - key: RATE_LIMIT_PERIOD
+        value: "60"
+
+      # ── Logging ─────────────────────────────────────────────────────────────
+      - key: LOG_LEVEL
+        value: INFO
+
+      # ── HuggingFace (disable Xet for faster build) ───────────────────────────
+      - key: HF_HUB_DISABLE_XET
+        value: "1"
