@@ -1,19 +1,22 @@
 FROM python:3.11-slim
 
-# System libs required by mediapipe + opencv-python-headless on Linux
+# Minimal system libs needed for Pillow + httpx on Linux
 RUN apt-get update && apt-get install -y \
-    libglib2.0-0 libsm6 libxrender1 libxext6 libgl1 \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Use regular hub downloads instead of Xet-based path which is often rate-limited for anonymous Cloud Run egress.
+# Disable HuggingFace Xet (not needed — food AI is off on Render)
 ENV HF_HUB_DISABLE_XET=1
+ENV ENABLE_FOOD_AI=false
+ENV ENVIRONMENT=production
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Use lightweight requirements (no torch/mediapipe/opencv = ~150MB vs 4GB)
+COPY requirements-render.txt .
+RUN pip install --no-cache-dir -r requirements-render.txt
 
 COPY . .
 
-# Cloud Run sets $PORT dynamically; fall back to 8000 for local dev
-CMD ["sh", "-c", "gunicorn app.main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT:-8000} --timeout 120 --preload"]
+# Render sets $PORT dynamically; fall back to 8000 for local dev
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1"]
